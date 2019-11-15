@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.matdoli.geolocalization.model.GeoEntidade;
 import com.matdoli.geolocalization.resources.model.GeoResource;
+import com.matdoli.geolocalization.service.GeoCadastroServiceImpl;
 import com.matdoli.geolocalization.service.GeoServiceImpl;
 
 @RestController
@@ -20,10 +21,19 @@ public class GeoController {
 	@Autowired
 	private GeoServiceImpl buscarGeoImpl;
 	
+	@Autowired
+	private GeoCadastroServiceImpl cadastroService;
+	
 	
 	@GetMapping(path = "/geolocalizacao")
 	public List<GeoEntidade> buscarAllGeo(){
 		return buscarGeoImpl.buscarTodasGeo();
 	}
-		
+	
+	 @PostMapping(path = "/geolocalizacao/save")
+	    public void salvarGeolocalizacao(
+	            @RequestBody GeoResource geolocalizacao) {
+		 cadastroService.cadastro(geolocalizacao);
+	    }
 }
+
