@@ -2,16 +2,15 @@ package com.matdoli.geolocalization.service;
 
 import org.springframework.stereotype.Component;
 
+import com.matdoli.geolocalization.exception.GeolocalizationResourceException;
 import com.matdoli.geolocalization.model.GeoEntidade;
 import com.matdoli.geolocalization.resources.model.GeoResource;
-
-import br.com.nutrition.exception.NutricionistaResourceException;
 
 @Component
 public class GeoConversor {
 
     public GeoEntidade conversor(GeoResource geoResource)
-            throws NutricionistaResourceException {
+            throws GeolocalizationResourceException {
 
         try {
         	GeoEntidade geoEntidade = new GeoEntidade();
@@ -26,7 +25,7 @@ public class GeoConversor {
             return geoEntidade;
 
         } catch (Exception e) {
-            throw new NutricionistaResourceException(
+            throw new GeolocalizationResourceException(
                     "Falha ao converter o resource para entidade, resouce: "
                             + geoResource);
         }
