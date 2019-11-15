@@ -25,11 +25,5 @@ public class GeoController {
 	public List<GeoEntidade> buscarAllGeo(){
 		return buscarGeoImpl.buscarTodasGeo();
 	}
-	
-	 @PostMapping(path = "/geolocalizacao/save")
-	    public void salvarGeolocalizacao(
-	            @RequestBody GeoResource nutricionista) {
-	        serviceCadastro.cadastro(nutricionista);
-	    }
-}
+		
 }

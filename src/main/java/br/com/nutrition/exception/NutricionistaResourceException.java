@@ -1,4 +1,4 @@
-package com.matdoli.geolocalization.exception;
+package br.com.nutrition.exception;
 
 public class NutricionistaResourceException extends Exception {
 
