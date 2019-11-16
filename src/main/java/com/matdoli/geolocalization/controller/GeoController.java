@@ -29,8 +29,6 @@ public class GeoController {
 	@Autowired
 	private GeoBuscarService buscarService;
 	
-	
-
 	@GetMapping(path = "/geolocalizacao")
 	public List<GeoEntidade> buscarAllGeo() {
 		return buscarGeoImpl.buscarTodasGeo();
