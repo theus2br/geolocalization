@@ -3,6 +3,7 @@ package com.matdoli.geolocalization.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,6 +43,11 @@ public class GeoController {
 	@GetMapping(path = "/geolocalizacao/id/{id}")
 	public GeoEntidade buscarPorId(@PathVariable(name="id", required = true) Long id) {
 		return buscarService.buscarPorId(id);
+	}
+
+	@DeleteMapping(path = "/geolocalizacao/delete/{id}")
+	public void deletePorId(@PathVariable(name="id", required = true) Long id) {
+		buscarService.deletarPorId(id);
 	}
 
 }
