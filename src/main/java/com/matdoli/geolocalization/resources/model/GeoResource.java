@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class GeoResource {
 	
-	@JsonProperty("id")
-	String id;
-	
 	@JsonProperty("nome_usuario")
 	String nomeUsuario;
 	
@@ -15,15 +12,6 @@ public class GeoResource {
 	
 	@JsonProperty("longitude")
 	String longitude;
-
-	
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public String getNomeUsuario() {
 		return nomeUsuario;

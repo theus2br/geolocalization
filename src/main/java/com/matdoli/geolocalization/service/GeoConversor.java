@@ -14,10 +14,7 @@ public class GeoConversor {
 
         try {
         	GeoEntidade geoEntidade = new GeoEntidade();
-            Long idGeo = checkIdGeo(
-                    geoResource.getId());
-
-            geoEntidade.setId(idGeo);
+           
             geoEntidade.setNomeUsuario(geoResource.getNomeUsuario());
             geoEntidade.setLatitude(geoResource.getLatitude());
             geoEntidade.setLongitude(geoResource.getLongitude());

@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.matdoli.geolocalization.exception.GeolocalizationResourceException;
 import com.matdoli.geolocalization.model.GeoEntidade;
 import com.matdoli.geolocalization.resources.model.GeoResource;
 import com.matdoli.geolocalization.service.GeoBuscarService;
@@ -48,6 +50,11 @@ public class GeoController {
 	@DeleteMapping(path = "/geolocalizacao/delete/{id}")
 	public void deletePorId(@PathVariable(name="id", required = true) Long id) {
 		buscarService.deletarPorId(id);
+	}
+		
+	@PutMapping(path = "/geolocalizacao/alterar/{id}")
+	public void alterarPorId(@PathVariable(name="id", required = true) Long id, @RequestBody GeoResource geolocalizacao) throws GeolocalizationResourceException {
+		buscarService.alterarPorId(id, geolocalizacao);
 	}
 
 }
